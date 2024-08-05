@@ -1,6 +1,8 @@
 const express = require('express');
 const application = express();
 const mongoose = require('mongoose');
+const cors = require('cors');
+
 const port = 4445;
 const dbName = 'mongodb://127.0.0.1:27017/mern_lib';
 
@@ -9,6 +11,7 @@ const usersRouter = require('./routes/users');
 const catalogRouter = require('./routes/catalog');
 
 application.use(express.json());
+application.use(cors());
 
 mongoose
   .connect(dbName)
